@@ -1,52 +1,87 @@
+
 # MindMate – Mental Wellness Journal Companion (PS 57)
 
-A simple GenAI journaling app for students. Users write a journal entry, receive a supportive AI reflection, see an approximate mood label, and save entries locally.
+MindMate is a GenAI-powered journaling application designed for students. Users can write daily journal entries, receive supportive AI-generated reflections, view an approximate mood label, and save their entries locally.
 
 ## Features
-- Journal entry form with date
-- Supportive response using Gemini 2.5 Flash
-- Local keyword-based mood estimate
-- Distress-language flag with India support resources (Tele-MANAS 14416 / 1-800-891-4416; emergency 112)
+
+- Journal entry form with date selection
+- Supportive AI-generated responses using Groq API
+- Local keyword-based mood estimation
+- Distress-language detection with India support resources (Tele-MANAS: 14416 / 1-800-891-4416; Emergency: 112)
 - Local journal history with delete option
 - Safe fallback response if the API key is missing or the API is unavailable
 
-## Setup
+## Technology Stack
+
+- **Programming Language:** Python
+- **User Interface:** Streamlit
+- **LLM Provider:** Groq API
+- **Model:** openai/gpt-oss-120b
+- **Libraries:** groq, python-dotenv, Streamlit
+- **Storage:** Local JSON file
+
+## Setup and Installation
+
 1. Install Python 3.10 or newer.
-2. Open this folder in VS Code / terminal.
-3. Create and activate a virtual environment (optional but recommended).
-4. Install dependencies:
+2. Clone this repository or open the project folder in VS Code.
+3. Create and activate a virtual environment (recommended).
+4. Install the required dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
-5. Get a Gemini API key from Google AI Studio.
-6. Set the key as an environment variable:
-   - PowerShell: `$env:GEMINI_API_KEY="YOUR_KEY_HERE"`
-   - macOS/Linux: `export GEMINI_API_KEY="YOUR_KEY_HERE"`
-7. Run:
+
+5. Get a Groq API key from the Groq Console.
+6. Create a `.env` file in the project folder and add your API key:
+
+   ```env
+   GROQ_API_KEY=your_groq_api_key_here
+   ```
+
+7. Run the application:
+
    ```bash
    streamlit run app.py
    ```
 
-The app also runs without an API key using a local safe fallback response, so you can test the UI first.
+The application also provides a fallback response when the API key is unavailable, allowing users to test the interface.
 
-## Files
-- `app.py` – Streamlit interface
-- `ai_helper.py` – Gemini API call and fallback
-- `journal.py` – mood flagging and local JSON storage
+## Project Structure
 
-## Safety and privacy
-This is an educational prototype, not a medical device, diagnostic tool, therapy service, or crisis service. Mood labels and distress flags are approximate keyword-based checks and may miss context. Do not enter highly sensitive personal information. Entries are stored in `journal_entries.json` on the machine running the app. The project displays India support contacts when selected distress-related terms are detected; in an immediate emergency, contact local emergency services.
+- `app.py` – Streamlit user interface
+- `ai_helper.py` – Groq API integration and fallback response
+- `journal.py` – Mood estimation, distress detection and local journal storage
+- `requirements.txt` – Project dependencies
+- `.env.example` – Example environment configuration
+- `screenshots/` – Application output screenshots
 
-## Problem statement
-PS 57 – Mental Wellness Journal Companion: Students feel stressed but do not reflect. Build a journaling app that responds supportively and shares helpline information when needed.
+## Problem Statement
 
+**PS 57 – Mental Wellness Journal Companion**
 
+Students often experience stress but may not take time to reflect on their feelings. The objective is to build a journaling application that responds supportively to journal entries and shares helpline information when distress-related language is detected.
 
 ## Application Screenshots
 
 ### 1. AI Supportive Response
-![MindMate AI Response](screenshots/normal_response.jpeg)
+
+![MindMate AI Supportive Response](screenshots/normal_response.jpeg)
 
 ### 2. Distress Detection and Support Information
+
 ![MindMate Distress Alert](screenshots/distress_alert.jpeg)
 
+## Safety and Privacy
+
+MindMate is an educational prototype, not a medical device, diagnostic tool, therapy service or crisis service.
+
+Mood labels and distress flags are approximate keyword-based checks and may miss context. Users should avoid entering highly sensitive personal information. Journal entries are stored locally in `journal_entries.json` on the machine running the application.
+
+The application displays India-specific support contacts when selected distress-related terms are detected. In an immediate emergency, contact local emergency services.
+
+## Developer
+
+**Name:** Virti Ramesh  
+**Roll No.:** 57  
+**Class:** B.Tech Computer Science – AI & Analytics
