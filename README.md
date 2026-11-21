@@ -39,3 +39,13 @@ This is an educational prototype, not a medical device, diagnostic tool, therapy
 
 ## Problem statement
 PS 57 – Mental Wellness Journal Companion: Students feel stressed but do not reflect. Build a journaling app that responds supportively and shares helpline information when needed.
+
+
+## Application Screenshots
+
+### 1. AI Supportive Response
+![MindMate AI Response](screenshots/normal_response.png)
+
+### 2. Distress Detection and Support Information
+![MindMate Distress Alert](screenshots/distress_alert.png)
+
